@@ -8,7 +8,6 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import Header from "../components/Header";
 import MainFeaturedPost from "../components/MainFeaturedPost";
-import Main from "../components/Main";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import PostCard from "../components/PostCard";
@@ -18,19 +17,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
   },
 }));
-
-const sections = [
-  { title: "Technology", url: "#" },
-  { title: "Design", url: "#" },
-  { title: "Culture", url: "#" },
-  { title: "Business", url: "#" },
-  { title: "Politics", url: "#" },
-  { title: "Opinion", url: "#" },
-  { title: "Science", url: "#" },
-  { title: "Health", url: "#" },
-  { title: "Style", url: "#" },
-  { title: "Travel", url: "#" },
-];
 
 const mainFeaturedPost = {
   title: "Title of a longer featured blog post",
@@ -91,9 +77,8 @@ export default function Blog() {
 
   return (
     <React.Fragment>
-      <CssBaseline />
       <Container maxWidth="lg">
-        <Header title="Blog" sections={sections} />
+        <Header title="Blog" />
         <main>
           <MainFeaturedPost post={mainFeaturedPost} />
 

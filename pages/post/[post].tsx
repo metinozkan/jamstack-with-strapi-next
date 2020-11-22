@@ -1,4 +1,12 @@
-import { Typography, Grid, Divider } from "@material-ui/core";
+import {
+  Typography,
+  Grid,
+  Divider,
+  Container,
+  CssBaseline,
+} from "@material-ui/core";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 export type PostType = {
   id: number;
@@ -36,18 +44,27 @@ function Post({ post }: { post: PostType }) {
   console.log("res", post);
 
   return (
-    <Grid item xs={12} md={8}>
-      <Typography variant="h6" gutterBottom>
-        {post.title}
-      </Typography>
-      <Divider />
-      <Typography variant="body1">{post.content}</Typography>
-      {/* {posts.map((post) => (
+    <>
+      <Container maxWidth="lg">
+        <Header title="Blog" />
+        <Grid item xs={12} md={8}>
+          <Typography variant="h6" gutterBottom>
+            {post.title}
+          </Typography>
+          <Divider />
+          <Typography variant="body1">{post.content}</Typography>
+          {/* {posts.map((post) => (
         <Markdown className={classes.markdown} key={post.substring(0, 40)}>
           {post}
         </Markdown>
       ))} */}
-    </Grid>
+        </Grid>
+      </Container>
+      <Footer
+        title="Footer"
+        description="Something here to give the footer a purpose!"
+      />
+    </>
   );
 }
 

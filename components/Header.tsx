@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
+import * as React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Toolbar from "@material-ui/core/Toolbar";
+import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import SearchIcon from "@material-ui/icons/Search";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
   },
   toolbarSecondary: {
-    justifyContent: 'space-between',
-    overflowX: 'auto',
+    justifyContent: "space-between",
+    overflowX: "auto",
   },
   toolbarLink: {
     padding: theme.spacing(1),
@@ -25,16 +25,23 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface HeaderProps {
-  sections: Array<{
-    title: string;
-    url: string;
-  }>;
   title: string;
 }
-
+const sections = [
+  { title: "Technology", url: "#" },
+  { title: "Design", url: "#" },
+  { title: "Culture", url: "#" },
+  { title: "Business", url: "#" },
+  { title: "Politics", url: "#" },
+  { title: "Opinion", url: "#" },
+  { title: "Science", url: "#" },
+  { title: "Health", url: "#" },
+  { title: "Style", url: "#" },
+  { title: "Travel", url: "#" },
+];
 export default function Header(props: HeaderProps) {
   const classes = useStyles();
-  const { sections, title } = props;
+  const { title } = props;
 
   return (
     <React.Fragment>
@@ -57,7 +64,11 @@ export default function Header(props: HeaderProps) {
           Sign up
         </Button>
       </Toolbar>
-      <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
+      <Toolbar
+        component="nav"
+        variant="dense"
+        className={classes.toolbarSecondary}
+      >
         {sections.map((section) => (
           <Link
             color="inherit"
