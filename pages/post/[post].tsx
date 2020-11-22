@@ -1,6 +1,5 @@
 import { Typography, Grid, Divider, Paper } from "@material-ui/core";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+
 import { PostType, ParamsType } from "../../source/types/type";
 
 export async function getStaticPaths() {
@@ -32,7 +31,7 @@ function Post({ post }: { post: PostType }) {
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           width: "100%",
-          height: "200px",
+          height: "300px",
         }}
       >
         {<img style={{ display: "none" }} src={post.image} />}

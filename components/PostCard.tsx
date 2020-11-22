@@ -56,7 +56,11 @@ export default function PostCard({ post }: { post: PostType }) {
             </CardContent>
           </div>
           <Hidden smDown>
-            <CardMedia className={classes.cardMedia} image={post.image} />
+            <CardMedia
+              className={classes.cardMedia}
+              image={post.image}
+              component="img"
+            />
           </Hidden>
         </Card>
       </CardActionArea>

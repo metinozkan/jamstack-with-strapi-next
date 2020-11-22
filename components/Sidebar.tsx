@@ -24,6 +24,7 @@ interface SidebarProps {
   social: Array<{
     icon: React.ElementType;
     name: string;
+    url: string;
   }>;
   title: string;
 }
@@ -57,7 +58,14 @@ export default function Sidebar(props: SidebarProps) {
         Social
       </Typography>
       {social.map((network) => (
-        <Link display="block" variant="body1" href="#" key={network.name}>
+        <Link
+          display="block"
+          variant="body1"
+          href={network.url}
+          key={network.name}
+          rel="noopener"
+          target="_blank"
+        >
           <Grid container direction="row" spacing={1} alignItems="center">
             <Grid item>
               <network.icon />

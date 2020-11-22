@@ -40,7 +40,7 @@ export default function MyApp(props) {
   return (
     <React.Fragment>
       <Head>
-        <title>My page</title>
+        <title>Blog Page</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
@@ -59,11 +59,11 @@ export default function MyApp(props) {
         >
           <Header title="Blog" />
           <Component {...pageProps} />
+          <Footer
+            title="Footer"
+            description="Something here to give the footer a purpose!"
+          />
         </Container>
-        <Footer
-          title="Footer"
-          description="Something here to give the footer a purpose!"
-        />
       </ThemeProvider>
     </React.Fragment>
   );

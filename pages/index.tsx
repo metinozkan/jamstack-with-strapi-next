@@ -65,9 +65,13 @@ const sidebar = {
     { title: "April 1999", url: "#" },
   ],
   social: [
-    { name: "GitHub", icon: GitHubIcon },
-    { name: "Twitter", icon: TwitterIcon },
-    { name: "Facebook", icon: FacebookIcon },
+    { name: "GitHub", icon: GitHubIcon, url: "https://github.com/metinozkan" },
+    {
+      name: "Twitter",
+      icon: TwitterIcon,
+      url: "https://twitter.com/Metin_ozkann",
+    },
+    { name: "Facebook", icon: FacebookIcon, url: "#" },
   ],
 };
 export async function getStaticProps() {
