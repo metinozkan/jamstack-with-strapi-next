@@ -3,7 +3,8 @@ import { Typography, Grid, Divider, Paper } from "@material-ui/core";
 import { PostType, ParamsType } from "../../source/types/type";
 
 export async function getStaticPaths() {
-  const res = await fetch(`http://localhost:1337/posts`);
+  const res = await fetch(`https://7248fe9342ad.ngrok.io/posts`);
+  console.log("res", res);
   const posts = await res.json();
   const paths = posts.map((post: PostType) => ({
     params: { post: post.id.toString() },
@@ -13,7 +14,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: ParamsType) {
-  const res = await fetch(`http://localhost:1337/posts/${params.post}`);
+  const res = await fetch(`https://7248fe9342ad.ngrok.io/posts/${params.post}`);
   const post = await res.json();
 
   return { props: { post } };

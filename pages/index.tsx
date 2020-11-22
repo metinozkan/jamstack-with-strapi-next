@@ -75,7 +75,8 @@ const sidebar = {
   ],
 };
 export async function getStaticProps() {
-  const res = await fetch(`http://localhost:1337/posts`);
+  const res = await fetch(`https://7248fe9342ad.ngrok.io/posts`);
+  console.log("hompage", res);
   const posts = await res.json();
   return { props: { posts } };
 }
