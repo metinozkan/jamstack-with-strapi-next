@@ -6,10 +6,9 @@ import Container from "@material-ui/core/Container";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
-import Header from "../components/Header";
+
 import MainFeaturedPost from "../components/MainFeaturedPost";
 import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
 import PostCard from "../components/PostCard";
 
 const useStyles = makeStyles((theme) => ({
@@ -77,32 +76,24 @@ export default function Blog() {
 
   return (
     <React.Fragment>
-      <Container maxWidth="lg">
-        <Header title="Blog" />
-        <main>
-          <MainFeaturedPost post={mainFeaturedPost} />
-
-          <Grid container spacing={5} className={classes.mainGrid}>
-            <Grid item sm={8}>
-              {featuredPosts.map((post) => (
-                <PostCard key={post.title} post={post} />
-              ))}
-            </Grid>
-            <Grid item sm={4}>
-              <Sidebar
-                title={sidebar.title}
-                description={sidebar.description}
-                archives={sidebar.archives}
-                social={sidebar.social}
-              />
-            </Grid>
+      <main>
+        <MainFeaturedPost post={mainFeaturedPost} />
+        <Grid container spacing={5} className={classes.mainGrid}>
+          <Grid item sm={8}>
+            {featuredPosts.map((post) => (
+              <PostCard key={post.title} post={post} />
+            ))}
           </Grid>
-        </main>
-      </Container>
-      <Footer
-        title="Footer"
-        description="Something here to give the footer a purpose!"
-      />
+          <Grid item sm={4}>
+            <Sidebar
+              title={sidebar.title}
+              description={sidebar.description}
+              archives={sidebar.archives}
+              social={sidebar.social}
+            />
+          </Grid>
+        </Grid>
+      </main>
     </React.Fragment>
   );
 }

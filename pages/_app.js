@@ -3,9 +3,12 @@ import PropTypes from "prop-types";
 import Head from "next/head";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import Container from "@material-ui/core/Container";
+
 import { createMuiTheme } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
-
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 // Create a theme instance.
 const theme = createMuiTheme({
   palette: {
@@ -46,7 +49,14 @@ export default function MyApp(props) {
       <ThemeProvider>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Component {...pageProps} />
+        <Container maxWidth="lg">
+          <Header title="Blog" />
+          <Component {...pageProps} />
+        </Container>
+        <Footer
+          title="Footer"
+          description="Something here to give the footer a purpose!"
+        />
       </ThemeProvider>
     </React.Fragment>
   );
