@@ -7,6 +7,7 @@ import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Hidden from "@material-ui/core/Hidden";
+import { PostType, ParamsType } from "../source/types/type";
 
 const useStyles = makeStyles({
   card: {
@@ -31,13 +32,12 @@ interface FeaturedPostProps {
   };
 }
 
-export default function FeaturedPost(props: FeaturedPostProps) {
+export default function PostCard({ post }: { post: PostType }) {
   const classes = useStyles();
-  const { post } = props;
 
   return (
     <Grid item xs={12}>
-      <CardActionArea component="a" href="#">
+      <CardActionArea component="a" href={`post/${post.id}`}>
         <Card className={classes.card}>
           <div className={classes.cardDetails}>
             <CardContent>
@@ -45,10 +45,10 @@ export default function FeaturedPost(props: FeaturedPostProps) {
                 {post.title}
               </Typography>
               <Typography variant="subtitle1" color="textSecondary">
-                {post.date}
+                {post.published_at}
               </Typography>
               <Typography variant="subtitle1" paragraph>
-                {post.description}
+                {post.content}
               </Typography>
               <Typography variant="subtitle1" color="primary">
                 Continue reading...
@@ -56,11 +56,7 @@ export default function FeaturedPost(props: FeaturedPostProps) {
             </CardContent>
           </div>
           <Hidden smDown>
-            <CardMedia
-              className={classes.cardMedia}
-              image={post.image}
-              title={post.imageText}
-            />
+            <CardMedia className={classes.cardMedia} image={post.image} />
           </Hidden>
         </Card>
       </CardActionArea>

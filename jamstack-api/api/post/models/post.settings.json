@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "posts",
   "info": {
-    "name": "Post"
+    "name": "Post",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -16,6 +17,9 @@
     },
     "content": {
       "type": "richtext"
+    },
+    "image": {
+      "type": "string"
     }
   }
 }

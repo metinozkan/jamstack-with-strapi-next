@@ -70,17 +70,21 @@ const sidebar = {
     { name: "Facebook", icon: FacebookIcon },
   ],
 };
+export async function getStaticProps() {
+  const res = await fetch(`http://localhost:1337/posts`);
+  const posts = await res.json();
+  return { props: { posts } };
+}
 
-export default function Blog() {
+export default function Blog(props: any) {
   const classes = useStyles();
-
   return (
     <React.Fragment>
       <main>
         <MainFeaturedPost post={mainFeaturedPost} />
         <Grid container spacing={5} className={classes.mainGrid}>
           <Grid item sm={8}>
-            {featuredPosts.map((post) => (
+            {props.posts.map((post: any) => (
               <PostCard key={post.title} post={post} />
             ))}
           </Grid>

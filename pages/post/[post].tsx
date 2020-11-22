@@ -1,22 +1,7 @@
 import { Typography, Grid, Divider, Paper } from "@material-ui/core";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-
-export type PostType = {
-  id: number;
-  title: string;
-  content: string;
-  published_at: string;
-  created_at: string;
-  updated_at: string;
-  image: string;
-};
-
-export type ParamsType = {
-  params: {
-    post: number;
-  };
-};
+import { PostType, ParamsType } from "../../source/types/type";
 
 export async function getStaticPaths() {
   const res = await fetch(`http://localhost:1337/posts`);
@@ -36,13 +21,11 @@ export async function getStaticProps({ params }: ParamsType) {
 }
 
 function Post({ post }: { post: PostType }) {
-  console.log("res", post);
-
   return (
     <>
       <Paper
         style={{
-          backgroundImage: "url(https://source.unsplash.com/random)",
+          backgroundImage: `url(${post.image})`,
           position: "relative",
           marginBottom: "1em",
           backgroundSize: "cover",
@@ -52,12 +35,7 @@ function Post({ post }: { post: PostType }) {
           height: "200px",
         }}
       >
-        {
-          <img
-            style={{ display: "none" }}
-            src={"https://source.unsplash.com/random)"}
-          />
-        }
+        {<img style={{ display: "none" }} src={post.image} />}
       </Paper>
       <Grid item xs={12} md={8}>
         <Typography variant="h6" gutterBottom>
