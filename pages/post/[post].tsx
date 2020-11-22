@@ -1,10 +1,4 @@
-import {
-  Typography,
-  Grid,
-  Divider,
-  Container,
-  CssBaseline,
-} from "@material-ui/core";
+import { Typography, Grid, Divider, Paper } from "@material-ui/core";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
@@ -15,6 +9,7 @@ export type PostType = {
   published_at: string;
   created_at: string;
   updated_at: string;
+  image: string;
 };
 
 export type ParamsType = {
@@ -45,6 +40,25 @@ function Post({ post }: { post: PostType }) {
 
   return (
     <>
+      <Paper
+        style={{
+          backgroundImage: "url(https://source.unsplash.com/random)",
+          position: "relative",
+          marginBottom: "1em",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          width: "100%",
+          height: "200px",
+        }}
+      >
+        {
+          <img
+            style={{ display: "none" }}
+            src={"https://source.unsplash.com/random)"}
+          />
+        }
+      </Paper>
       <Grid item xs={12} md={8}>
         <Typography variant="h6" gutterBottom>
           {post.title}

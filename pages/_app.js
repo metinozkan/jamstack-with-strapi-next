@@ -49,7 +49,14 @@ export default function MyApp(props) {
       <ThemeProvider>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Container maxWidth="lg">
+        <Container
+          maxWidth="lg"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            height: "100vh",
+          }}
+        >
           <Header title="Blog" />
           <Component {...pageProps} />
         </Container>
